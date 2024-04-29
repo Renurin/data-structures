@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/Renan/Desktop/Pasta_do_Renan_=)/C/data-structures",
-      "program": "c:/Users/Renan/Desktop/Pasta_do_Renan_=)/C/data-structures/build/Debug/outDebug",
+      "cwd": "c:/Users/Renan/Desktop/Pasta_do_Renan_=)/C/data-structures/Main_c",
+      "program": "c:/Users/Renan/Desktop/Pasta_do_Renan_=)/C/data-structures/Main_c/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
