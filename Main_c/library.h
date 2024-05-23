@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void swap(int *original, int *trocar)
+void swap(int *original, int *change)
 {
     int temp = *original;
-    *original = *trocar;
-    *trocar = temp;
+    *original = *change;
+    *change = temp;
 }
 
 // O(N²)
