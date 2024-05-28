@@ -25,7 +25,6 @@ void bubblesort(int *array, int size){
         }
         
     }
-    
 }
 
 // O(N²)
@@ -52,6 +51,7 @@ void selectionsort(int *array, int size){
 // O(N²)
 // Worst case: Inverted array
 // Ascending
+
 void insertionsort(int *array, int size){
     for (int i = 1; i < size; i++) // Supose the first is already ordenaded
     {
@@ -60,11 +60,61 @@ void insertionsort(int *array, int size){
 
         while ( key < array[check] && check>=0) // While key is smaller than array[check],
         {
-            swap(&array[check], &array[i]); 
-            check--;
+            array[check + 1] = array[check];
+            --check; // Uses and then decreases
         }
+        array[check + 1] = key;
     }
     
 }
 
+// O(N*Log N)
+// Ascending
+// Worst case: O(n²), almost-sorted array
 
+int partition(int *array, int left, int right){
+    int pivot = array[right]; // Defining pivot: The right element
+    int mid = left-1; // Pointer for greater element
+
+    for (int i = left; i < right; i++)
+    {
+        if (array[i] <= pivot)
+        {
+            // if an element smaller than pivot is found
+            // swap it with greater element pointed by mid
+             
+            mid++;
+            swap(&array[mid], &array[i]);
+        }
+    }
+    // Swap pivot element with the greater pointed by mid
+    swap(&array[mid+1], &array[right]);
+
+    return mid+1; // Partition point
+}
+
+void quicksort(int *array, int left, int right){
+    if (left < right)
+    {
+        int mid = partition(array,left,right); // Defining mid
+        quicksort(array, left, mid-1);
+        quicksort(array, mid+1, right);
+
+    }
+    
+}
+
+//O(N * Log N)
+// Ascending
+//
+
+void mergesort(int *array, int left, int right){
+    if (left< right-1)
+    {
+        int mid= (left+right)/2;
+        mergesort(array, left, mid);
+        mergesort(array, mid+1, right);
+        
+    }
+    
+}
