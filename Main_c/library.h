@@ -118,3 +118,87 @@ void mergesort(int *array, int left, int right){
     }
     
 }
+
+// Structs to chain list
+typedef struct node
+{
+    int data;
+    node* next;
+} node;
+
+bool checkEmpty(node *list){
+    if (list == NULL)
+    {
+        return true;
+    }
+    else return false;
+}
+
+node insertNodeHead(int term, node *list){
+    node *newNode;
+    newNode = (node*) malloc(sizeof(node));
+    newNode->data= term; // Set newNode data to term
+    newNode->next = list; // Get the second node
+    list= newNode; // Head points to new Node
+
+    return *list; // Return the list with the new Node
+}
+
+node insertNodeTail(int term, node *list){
+    node *aux , *newNode;
+    aux->next = list; // Aux to find the last node
+
+    newNode = (node*) malloc(sizeof(node));
+    newNode->data = term;
+    newNode->next = NULL; //New node will be the last term
+
+    while (aux->next != NULL)
+    {
+        aux = aux->next; // Fiding the last node
+    }
+    aux->next = newNode;
+    return *list;
+}
+
+node insertNodeBefore(int term, int key, node *list){
+    // Create a function to test if key is the first node
+
+    node *aux, *newNode;
+    aux = list;
+    if (aux->data = key)
+    {
+        insertNodeHead(term, list);
+    }
+    else{
+        newNode = (node*) malloc(sizeof(node));
+        newNode->data = term;
+        // Find the node BEFORE the key element
+        while (aux->next->data != key)
+        {
+            aux = aux->next; // At the end of the loop, aux is the antecessor of newNode and aux->next is the sucessor.
+        }
+
+        newNode->next = aux->next;
+        aux->next = newNode;
+        return *list;
+    }
+}
+
+node insertNodeAfter(int term, int key, node *list){
+    // Create a function to test if key is the last node;
+
+    node *aux, *newNode;
+    aux = list;
+    
+    newNode = (node*) malloc(sizeof(node));
+    newNode->data = term;
+    // Find the node AFTER the key element
+    while (aux->data != key)
+    {
+        aux = aux->next; // At the end of the loop, aux is the node of key and aux->next is the sucessor.
+    }
+
+    newNode->next = aux->next;
+    aux = newNode;
+    return *list;
+}
