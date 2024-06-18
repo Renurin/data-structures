@@ -119,7 +119,9 @@ void mergesort(int *array, int left, int right){
     
 }
 
+
 // Structs to chain list
+// Examples
 typedef struct node
 {
     int data;
