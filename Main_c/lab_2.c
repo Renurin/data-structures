@@ -18,6 +18,7 @@ void stack_up(node *stack, char term){
 
     return stack; // Return the stack with the new Node
     }
+    
     else
     {
         node *aux, *newNode;

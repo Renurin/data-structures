@@ -129,7 +129,7 @@ typedef struct node
 } node;
 
 bool checkEmpty(node *list){
-    if (list == NULL)
+    if (list->next == NULL)
     {
         return true;
     }
